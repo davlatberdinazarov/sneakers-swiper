@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { LuShoppingCart } from "react-icons/lu";
+import CartModal from './CartModal';
+import { ProductContext } from '../App';
 
 const Navbar = () => {
+    const [showCart, setShowCart] = useState(false);
+    const { cartData } = useContext(ProductContext);
+
+    console.log(cartData)
     return (
         <nav className="navbar navbar-expand-lg border-1 border-bottom">
             <div className="container-fluid">
@@ -35,8 +41,14 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='d-flex align-items-center gap-4'>
-                        <LuShoppingCart className='fs-4'/>
+                    <div className='d-flex align-items-center gap-4 position-relative'>
+                        <div className='cart-btn position-relative' onClick={() => setShowCart(!showCart)}>
+                            <LuShoppingCart className='fs-4'/>
+                            <span className=' rounded-circle position-absolute top-0 text-white d-flex align-items-center justify-content-center' style={{ width:'20px', height: '20px', right:'-14px', background:'orange' }}>
+                                { cartData[0]?.quantity ? cartData[0]?.quantity : 0 }
+                            </span>
+                        </div>
+                       { showCart && <CartModal/>}
                         <div>
                             <img className='rounded-circle' width='50px' src="/user.webp" alt="user profile" />
                         </div>

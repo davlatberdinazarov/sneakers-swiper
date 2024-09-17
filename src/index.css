@@ -106,3 +106,41 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.btn-css{
+  background-color: antiquewhite;
+  min-width: 50px;
+  border: none;
+  padding: 8px;
+  min-height: 57px;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.btn-css:hover{
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-css:active{
+  background-color: rgb(215, 187, 150);
+  color: white;
+}
+
+.cart-modal{
+  position: absolute;
+  width: 360px;
+  height: 220px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 26px 0px rgba(34, 60, 80, 0.2);
+  background-color: white;
+  bottom: -250px;
+  right: -170px;
+}
+
+.cart-btn:hover{
+    cursor: pointer;
+    /* set text shadow */
+    box-shadow: 0px 5px 26px 0px rgba(34, 60, 80, 0.2);
+}

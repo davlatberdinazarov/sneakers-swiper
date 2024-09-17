@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ProductContext } from '../App'
 
-export default function ProductContent() {
+export default function ProductContent({ productData }) {
+
+  const { handleAddToCart } = useContext(ProductContext);
   return (
-    <div className='p-4'>
+    <div className='p-4 d-flex flex-column gap-3'>
       <h6 style={{ color: 'orange' }}>Sneaker Company</h6>
       <h1 className=' display-5 fw-bolder'>Fall Limited Edition Sneakers</h1>
 
@@ -16,17 +19,17 @@ export default function ProductContent() {
       </div>
 
 
-      <h1 className=' text-secondary text-decoration-line-through fw-bolder'>$125.00 </h1>
+      <h2 className=' text-secondary text-decoration-line-through fw-bolder'>$125.00 </h2>
 
       <div className=' d-flex gap-5'>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-outline-primary">+</button>
-          <button type="button" class="btn btn-outline-primary">0</button>
-          <button type="button" class="btn btn-outline-primary">-</button>
+        <div style={{ background: 'antiquewhite' }} class="btn-group btn-group-lg shadow" role="group" aria-label="Basic outlined example">
+          <button type="button" class=" btn-css">-</button>
+          <button type="button" class=" btn-css">0</button>
+          <button type="button" class=" btn-css">+</button>
         </div>
 
         <div>
-          <button className=' btn-lg btn btn-warning'>Add to Cart</button>
+          <button onClick={() => handleAddToCart(productData)} className=' btn-lg btn btn-warning fw-bolder shadow'>Add to Cart</button>
         </div>
       </div>
 
